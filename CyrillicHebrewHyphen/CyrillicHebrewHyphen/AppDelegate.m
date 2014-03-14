@@ -84,12 +84,12 @@
     
     // 4. force to hyphenate a word by reducing of text container's width
     
-    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:(CGSize){30, 999}];
+    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:(CGSize){60, 999}];
     
     [textStorage addLayoutManager:layoutManager];
     [layoutManager addTextContainer:textContainer];
     
-    // 5. run layouting and catch EXC_BAD_ACCESS in _NSGlyphTreeGetCGGlyphsInRange
+    // 5. run layouting and catch EXC_BAD_ACCESS in _NSGlyphTreeGetCGGlyphsInRange or [NSATSLineFragment saveWithGlyphOrigin:]
     
     [layoutManager ensureLayoutForCharacterRange:NSMakeRange(0, attrString.length)];
 }
